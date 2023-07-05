@@ -15,10 +15,19 @@ const schema = new mongoose.Schema;
 const products_model = mongoose.model('products', schema);
 
 
-app.get('/products',async (req,res)=>
+app.get('/fetch',async (req,res)=>
 {
   const result = await products_model.find();
   res.send(result);
+})
+
+app.post('/enter', async(req,res)=>
+{
+  const product = new products_model({
+    "name": "bike",
+    "price": 4500
+  })
+  await product.save();
 })
 
 app.listen(port, () => {
