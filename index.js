@@ -10,23 +10,14 @@ app.get('/', (req, res) => {
 mongoose.connect('mongodb+srv://wahab:03315046101@nodeapitesting.8brpasx.mongodb.net/Node-API?retryWrites=true&w=majority'
 ).then(console.log("connection successful")).catch("Error connecting to database");
 
-const schema = new mongoose.Schema(
-  {
-    name: String,
-    price: String
-  },
+const schema = new mongoose.Schema;
 
-  {
-    collection:"products"
-  }
-)
-
-const products = mongoose.model('products', schema);
+const products_model = mongoose.model('products', schema);
 
 
 app.get('/products',async (req,res)=>
 {
-  const result = await products.find();
+  const result = await products_model.find();
   res.send(result);
 })
 
