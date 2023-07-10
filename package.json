@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon index.js --port 3005"
+    "start": "nodemon index.js --3005"
   },
   "dependencies": {
     "curl": "^0.1.4",
