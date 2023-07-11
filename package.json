@@ -3,6 +3,7 @@
     "start": "nodemon index.js --3005"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "curl": "^0.1.4",
     "express": "^4.18.1",
     "mongoose": "^7.3.1"
