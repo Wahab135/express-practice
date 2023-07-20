@@ -1,18 +1,18 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const schema = mongoose.Schema(
-    {
-      name: {
-        type: String,
-        required: [true, "Please enter product name"],
-      },
-      price: {
-        type: Number,
-        required: [true, "Please enter price"],
-      },
+  {
+    name: {
+      type: String,
+      required: [true, "Please enter product name"],
     },
-    {
-      timestamps: true,
-    }
-  );
-  module.exports = schema
+    price: {
+      type: Number,
+      required: [true, "Please enter price"],
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+module.exports = schema;

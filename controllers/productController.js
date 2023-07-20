@@ -1,11 +1,11 @@
 const databaseController = require("./databaseController");
 const products_model = databaseController.products_model;
-
+const asyncHandler = require("express-async-handler");
 const defaultRoute = async (req, res) => {
-  res.send("Hello world, app is running!!")
+  res.send("Hello world, app is running!!");
 };
 
-const enterRoute = async (req, res) => {
+const enterRoute = asyncHandler(async (req, res) => {
   try {
     const product = await products_model.create(req.body);
     res.status(200).json(product);
@@ -13,16 +13,16 @@ const enterRoute = async (req, res) => {
     console.log(error.message);
     res.status(500).json({ message: error.message });
   }
-};
+});
 
-const testRoute = async (req, res) => {
+const testRoute = asyncHandler(async (req, res) => {
   const data = req.body;
   res.json(data);
-};
+});
 
-const fetchRoute = async (req, res) => {
+const fetchRoute = asyncHandler(async (req, res) => {
   const result = await products_model.find();
   res.send(result);
-};
+});
 
 module.exports = { defaultRoute, enterRoute, testRoute, fetchRoute };
