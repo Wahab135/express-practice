@@ -10,6 +10,8 @@ router.get("/", (req, res) => {
 
 router.get("/show", userController.show);
 
+router.post("/login", userController.login);
+
 router.post("/test", (req, res) => {
   res.send(req.body);
 });
