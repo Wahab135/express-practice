@@ -40,6 +40,8 @@ const login = asyncHandler(async (req, res) => {
       email: existingUser.email,
     });
     res.status(200).send({ message: "Login Successful!", token: token });
+  } else {
+    res.status(500).send("Invalid username or Password");
   }
 });
 
